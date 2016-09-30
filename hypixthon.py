@@ -29,7 +29,7 @@ class Hypixthon:
 	@staticmethod
 	def getPlayerMinecraftID(uuid):
 		url = "https://api.mojang.com/user/profiles/{}/names".format(uuid)
-		return requests.get(url).json()[0]["name"]
+		return requests.get(url).json()[-1]["name"]
 
 	def getPlayer(self, uuid=None, mcid=None):
 		if not uuid and not mcid:
