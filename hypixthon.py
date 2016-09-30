@@ -19,7 +19,8 @@ class Hypixthon:
 			url = self.baseUrl + path
 		url += "?" + "".join(["{}={}".format(x, y) for x, y in data.items()])
 
-		response = requests.get(url)
+		header = {"User-Agent": "Hypixthon/1.0 (Hypixel API Python Wrapper; https://github.com/SlashNephy/Hypixthon)"}
+		response = requests.get(url, headers=header)
 		return json.loads(response.text)
 
 	def getPlayer(self, uuid=None, mcid=None):
