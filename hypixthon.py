@@ -26,6 +26,11 @@ class Hypixthon:
 		url = "https://api.mojang.com/users/profiles/minecraft/{}".format(mcid)
 		return requests.get(url).json().get("id")
 
+	@staticmethod
+	def getPlayerMinecraftID(uuid):
+		url = "https://api.mojang.com/user/profiles/{}/names".format(uuid)
+		return requests.get(url).json()[0]["name"]
+
 	def getPlayer(self, uuid=None, mcid=None):
 		if not uuid and not mcid:
 			raise Exception("uuid or mcid must be set.")
