@@ -2,7 +2,7 @@
 Hypixel API Wrapper for Python 2 / 3
 
 set up with your API Key.<br>
-you can get API Key with `/api`.
+get API Key with `/api`.
 ```python
 from hypixthon import Hypixthon
 
@@ -19,7 +19,7 @@ client.getFriends(uuid="player uuid")
 # First get guild ID.
 client.findGuild(uuid="player uuid")
 # Get guild data.
-client.getGuild(guildId="guild uuid")
+client.getGuild(guildId="guild id")
 
 # Get player's session data.
 client.getSession(uuid="player uuid")
