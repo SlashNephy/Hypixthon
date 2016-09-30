@@ -1,5 +1,4 @@
 # coding=utf-8
-import json
 
 import requests
 
@@ -17,11 +16,15 @@ class Hypixthon:
 		url = path
 		if path.startswith("/"):
 			url = self.baseUrl + path
-		url += "?" + "".join(["{}={}".format(x, y) for x, y in data.items()])
-
+		url += "?" + "&".join(["{}={}".format(x, y) for x, y in data.items()])
 		header = {"User-Agent": "Hypixthon/1.0 (Hypixel API Python Wrapper; https://github.com/SlashNephy/Hypixthon)"}
 		response = requests.get(url, headers=header)
-		return json.loads(response.text)
+		return response.json()
+
+	@staticmethod
+	def getPlayerUUID(mcid):
+		url = "https://api.mojang.com/users/profiles/minecraft/{}".format(mcid)
+		return requests.get(url).json().get("id")
 
 	def getPlayer(self, uuid=None, mcid=None):
 		if not uuid and not mcid:
@@ -63,8 +66,8 @@ class Hypixthon:
 			data = {"byName": mcid}
 		return self.call("/session", data)
 
-	def getKey(self, key):
-		data = {"key": key}
+	def getKey(self):
+		data = {"key": self.apiKey}
 		return self.call("/key", data)
 
 	def getBoosters(self):
