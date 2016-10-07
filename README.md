@@ -25,7 +25,7 @@ client.getGuild(guildId="guild id")
 client.getSession(uuid="player uuid")
 
 # Get API Key's information.
-client.getKey()
+client.getKeyInfo()
 
 # Get Coin Boosters information.
 client.getBoosters()
