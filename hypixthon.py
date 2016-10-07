@@ -71,9 +71,8 @@ class Hypixthon:
 			data = {"byName": mcid}
 		return self.call("/session", data)
 
-	def getKey(self):
-		data = {"key": self.apiKey}
-		return self.call("/key", data)
+	def getKeyInfo(self):
+		return self.call("/key")
 
 	def getBoosters(self):
 		return self.call("/boosters")
