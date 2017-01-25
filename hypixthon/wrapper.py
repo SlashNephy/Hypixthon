@@ -51,11 +51,9 @@ class Wrapper:
 
 		return self.request.HypixelAPI("/guild", data)
 
-	def getFriends(self, **kwargs):
-		parsed = parseArguments(**kwargs)
-		key = "byUuid" if isUUIDArgument(parsed) else "byName"
+	def getFriends(self, uuid):
 		data = {
-			key: parsed[1]
+			"uuid": uuid
 		}
 
 		return self.request.HypixelAPI("/friends", data)
