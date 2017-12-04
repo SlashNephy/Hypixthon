@@ -2,7 +2,7 @@
 Hypixel API Wrapper for Python 2 / 3
 
 set up with your API Key.<br>
-if you do NOT have an API key, you can get an API Key with `/api` in Minecraft while you are loging in `mc.hypixel.net`.
+if you do NOT have an API key, you can get an API Key with `/api` in Minecraft while you are logging in `mc.hypixel.net`.
 ```python
 from hypixthon import Hypixthon
 
